@@ -16,7 +16,7 @@ public class Contrived {
 	}
 
 	public List<String> singleParamDelegateForEach(Object... objects) {
-		List<String> stringList = new ArrayList<>();
+		List<String> stringList = new ArrayList<String>();
 
 		for (Object object : objects) {
 			stringList.add(service.singleParamMethod(object));
