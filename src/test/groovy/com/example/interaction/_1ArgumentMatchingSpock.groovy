@@ -15,6 +15,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match arguments using equals"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod("value") >> "value-string"
 		// SNIPPET END
@@ -31,6 +32,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match argument not equals"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod(!"value") >> "value-string"
 		// SNIPPET END
@@ -48,6 +50,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match any argument"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod(_) >> "value-string"
 		// SNIPPET END
@@ -64,6 +67,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match multiple any arguments"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.multiParamMethod(*_) >> "onetwo"
 		// SNIPPET END
@@ -80,6 +84,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match any argument of type String"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod(_ as String) >> "value"
 		// SNIPPET END
@@ -96,6 +101,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match null argument"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod(null) >> "value"
 		// SNIPPET END
@@ -112,6 +118,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match not null argument"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod(!null) >> "value"
 		// SNIPPET END

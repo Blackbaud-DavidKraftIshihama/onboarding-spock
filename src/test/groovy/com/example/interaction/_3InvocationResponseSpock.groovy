@@ -14,6 +14,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should return single response"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod("object") >> "value"
 		// SNIPPET END
@@ -30,6 +31,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should return chained responses"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod("object") >>> ["value1", "value2"]
 		// SNIPPET END
@@ -46,6 +48,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should throw exception"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod("object") >> { throw new RuntimeException() }
 		// SNIPPET END
@@ -64,6 +67,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should return response on first invocation and throw exception on second"() {
 		given:
+		// FIXME
 		// SNIPPET START
 		service.singleParamMethod("object") >> "value" >> { throw new RuntimeException() }
 		// SNIPPET END

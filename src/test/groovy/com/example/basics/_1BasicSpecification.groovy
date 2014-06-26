@@ -12,7 +12,7 @@ class _1BasicSpecification extends Specification {
 		when:
 		list.add('two')
 
-		// verify list contents
+		// FIXME: verify list contents
 		// SNIPPET START
 		then:
 		list == ['one', 'two']
@@ -24,7 +24,7 @@ class _1BasicSpecification extends Specification {
 		Bean bean1 = new Bean("correct")
 		Bean bean2 = new Bean("correct")
 
-		// verify bean equality
+		// FIXME: verify bean equality
 		// SNIPPET START
 		expect:
 		bean1.equals(bean2)
@@ -41,7 +41,7 @@ class _1BasicSpecification extends Specification {
 		then:
 		file.text == "file content"
 
-		// delete the file as part of test cleanup
+		// FIXME: delete the file as part of test cleanup
 		// SNIPPET START
 		cleanup:
 		file.delete()
@@ -52,6 +52,7 @@ class _1BasicSpecification extends Specification {
 		given:
 		File file1 = new File('file-one')
 
+		// FIXME
 		// SNIPPET START
 		and:
 		File file2 = new File('file-two')

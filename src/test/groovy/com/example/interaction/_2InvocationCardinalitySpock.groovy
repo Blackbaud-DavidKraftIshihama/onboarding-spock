@@ -20,6 +20,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		String value = contrived.singleParamDelegate("object")
 
 		then:
+		// FIXME
 		// SNIPPET START
 		1 * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
@@ -31,6 +32,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
 		then:
+		// FIXME
 		// SNIPPET START
 		2 * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
@@ -42,6 +44,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		List<String> values = contrived.singleParamDelegateForEach(new Object[0])
 
 		then:
+		// FIXME
 		// SNIPPET START
 		0 * service.singleParamMethod("object")
         // SNIPPET END
@@ -57,6 +60,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
 		then:
+		// FIXME
 		// SNIPPET START
 		(1..2) * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
@@ -71,6 +75,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		List<String> values = contrived.singleParamDelegateForEach("object", "object", "object")
 
 		then:
+		// FIXME
 		// SNIPPET START
 		(2.._) * service.singleParamMethod("object") >> "value"
 		// SNIPPET END

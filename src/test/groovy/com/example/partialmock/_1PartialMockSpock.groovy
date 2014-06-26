@@ -14,6 +14,7 @@ class _1PartialMockSpock extends Specification
      */
     def "service should never be called" () {
         given:
+        // FIXME
         // SNIPPET START
         contrived.singleParamDelegate(_) >> "stuff"
         // SNIPPET END

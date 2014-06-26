@@ -19,6 +19,7 @@ class ExceptionHandlingSpock extends Specification {
 		contrived.throwException("failure!", 1)
 
 		then:
+		// FIXME
 		// SNIPPET START
 		thrown(ServiceException)
 		// SNIPPET END
@@ -38,6 +39,7 @@ class ExceptionHandlingSpock extends Specification {
 		contrived.throwException(expectedMessage, expectedStatusCode)
 
 		then:
+		// FIXME
 		// SNIPPET START
 		ServiceException ex = thrown()
 		ex.message == expectedMessage
@@ -56,6 +58,7 @@ class ExceptionHandlingSpock extends Specification {
 		map.put(null, "element")
 
 		then:
+		// FIXME
 		// SNIPPET START
 		notThrown(NullPointerException)
 		// SNIPPET END
