@@ -88,9 +88,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should throw exception if input is null"() {
 		given:
-		// SNIPPET START
 		service.singleParamMethod(_) >> { args -> if (args[0] == null) throw new RuntimeException() }
-		// SNIPPET END
 
 		when:
 		contrived.singleParamDelegate(null)
@@ -105,9 +103,7 @@ class _3InvocationResponseSpock extends Specification {
 	 */
 	def "should return input argument appended with '-response'"() {
 		given:
-		// SNIPPET START
 		service.singleParamMethod(_) >> { String arg -> "${arg}-response"}
-		// SNIPPET END
 
 		when:
 		String value = contrived.singleParamDelegate("object")

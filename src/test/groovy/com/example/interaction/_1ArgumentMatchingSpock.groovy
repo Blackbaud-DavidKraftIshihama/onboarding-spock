@@ -129,9 +129,7 @@ class _1ArgumentMatchingSpock extends Specification {
 	 */
 	def "should match dynamic predicate where argument is string of length greater than 4"() {
 		given:
-		// SNIPPET START
 		service.singleParamMethod({String arg -> arg.size() > 4}) >> "value"
-		// SNIPPET END
 
 		when:
 		int randomNumber = new Random().nextInt(10000)

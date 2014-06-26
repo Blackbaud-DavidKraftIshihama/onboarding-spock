@@ -22,12 +22,6 @@ class _2FixtureMethods extends Specification {
 
 	def "should output fixture flow"() {
 		println "test"
-
-		expect:
-		// there's nothing here to really fix, the purpose of this test is to simply demonstrate execution order
-		// CLASS SNIPPET START
-		true
-		// CLASS SNIPPET END
 	}
 
 }
