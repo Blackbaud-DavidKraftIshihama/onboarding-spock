@@ -24,7 +24,7 @@ class _1BasicSpecification extends Specification {
 		Bean bean1 = new Bean("correct")
 		Bean bean2 = new Bean("correct")
 
-		// FIXME: verify bean equality
+		// FIXME: verify beans are equal
 		// SNIPPET START
 		expect:
 		bean1.equals(bean2)

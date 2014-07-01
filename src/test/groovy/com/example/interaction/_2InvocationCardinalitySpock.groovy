@@ -20,7 +20,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		String value = contrived.singleParamDelegate("object")
 
 		then:
-		// FIXME
+		// FIXME: verify service.singleParamMethod is only called once
 		// SNIPPET START
 		1 * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
