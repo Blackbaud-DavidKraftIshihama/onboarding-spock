@@ -24,6 +24,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		// SNIPPET START
 		1 * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
+
 		value == "value"
 	}
 
@@ -36,6 +37,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		// SNIPPET START
 		2 * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
+
 		values == ["value", "value"]
 	}
 
@@ -47,9 +49,10 @@ class _2InvocationCardinalitySpock extends Specification {
 		// FIXME
 		// SNIPPET START
 		0 * service.singleParamMethod("object")
-        // SNIPPET END
-        values == []
-    }
+		// SNIPPET END
+
+		values == []
+	}
 
 	/**
 	 * Groovy range syntax can be used to specify a cardinality range...
@@ -64,6 +67,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		// SNIPPET START
 		(1..2) * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
+
 		values == ["value", "value"]
 	}
 
@@ -79,6 +83,7 @@ class _2InvocationCardinalitySpock extends Specification {
 		// SNIPPET START
 		(2.._) * service.singleParamMethod("object") >> "value"
 		// SNIPPET END
+
 		values == ["value", "value", "value"]
 	}
 

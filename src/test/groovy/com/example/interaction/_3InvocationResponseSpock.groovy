@@ -115,5 +115,5 @@ class _3InvocationResponseSpock extends Specification {
 		then:
 		value == "object-response"
 	}
-	
+
 }
