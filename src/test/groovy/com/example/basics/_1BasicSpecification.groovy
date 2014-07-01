@@ -52,7 +52,7 @@ class _1BasicSpecification extends Specification {
 		given:
 		File file1 = new File('file-one')
 
-		// FIXME
+		// FIXME: should define file2 in an 'and' block
 		// SNIPPET START
 		and:
 		File file2 = new File('file-two')
