@@ -19,7 +19,7 @@ public class Contrived {
 		List<String> stringList = new ArrayList<String>();
 
 		for (Object object : objects) {
-			stringList.add(service.singleParamMethod(object));
+			stringList.add(singleParamDelegate(object));
 		}
 		return stringList;
 	}
