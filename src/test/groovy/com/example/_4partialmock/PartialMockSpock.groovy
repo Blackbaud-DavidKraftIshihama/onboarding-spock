@@ -1,10 +1,10 @@
-package com.example.partialmock
+package com.example._4partialmock
 
 import com.example.Contrived
 import com.example.Service
 import spock.lang.Specification
 
-class _1PartialMockSpock extends Specification
+class PartialMockSpock extends Specification
 {
     private Service service = Mock()
     private Contrived contrived = Spy(Contrived, constructorArgs: [service])

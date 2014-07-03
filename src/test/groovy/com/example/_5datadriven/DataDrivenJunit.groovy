@@ -1,4 +1,4 @@
-package com.example.datadriven
+package com.example._5datadriven
 
 import com.example.Contrived
 import com.example.Service
@@ -11,7 +11,7 @@ import static org.mockito.BDDMockito.given
 import static org.mockito.Mockito.mock
 
 @RunWith(Parameterized)
-class SimpleDataDrivenJunitTest {
+class DataDrivenJunit {
 
 	@Parameterized.Parameters(name = "{index}: singleParamDelegate({0}) = {1}")
 	public static Collection<Object[]> inputAndReturnValues() {
@@ -26,7 +26,7 @@ class SimpleDataDrivenJunitTest {
 	private String inputParameter
 	private String expectedReturnValue
 
-	public SimpleDataDrivenJunitTest(String inputParameter, String expectedReturnValue) {
+	public DataDrivenJunit(String inputParameter, String expectedReturnValue) {
 		this.inputParameter = inputParameter
 		this.expectedReturnValue = expectedReturnValue
 	}

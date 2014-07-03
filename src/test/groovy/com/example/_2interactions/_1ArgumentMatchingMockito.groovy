@@ -1,4 +1,4 @@
-package com.example.interaction
+package com.example._2interactions
 
 import com.example.Contrived
 import com.example.Service

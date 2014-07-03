@@ -1,4 +1,4 @@
-package com.example.exception
+package com.example._3exceptions
 
 import com.example.Contrived
 import com.example.Service

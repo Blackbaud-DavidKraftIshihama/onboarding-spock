@@ -1,4 +1,4 @@
-package com.example.basics
+package com.example._1basics
 
 import com.example.Bean
 import spock.lang.Specification

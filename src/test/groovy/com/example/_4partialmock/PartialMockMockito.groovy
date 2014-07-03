@@ -1,4 +1,4 @@
-package com.example.partialmock
+package com.example._4partialmock
 
 import com.example.Contrived
 import com.example.Service
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.never
 import static org.mockito.Mockito.verify
 
 @RunWith(MockitoJUnitRunner)
-class _1PartialMockMockito {
+class PartialMockMockito {
     @Mock private Service service
     @Spy @InjectMocks private Contrived contrived
 

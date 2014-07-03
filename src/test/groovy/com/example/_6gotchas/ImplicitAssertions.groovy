@@ -1,4 +1,4 @@
-package com.example.gotchas
+package com.example._6gotchas
 
 import spock.lang.Specification
 
