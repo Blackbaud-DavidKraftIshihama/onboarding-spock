@@ -29,7 +29,7 @@ class _2FixtureMethods extends Specification {
 		println "test"
 
 		expect:
-			true
+		true
 	}
 
 }

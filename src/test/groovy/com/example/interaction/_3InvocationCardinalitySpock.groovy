@@ -4,7 +4,7 @@ import com.example.Contrived
 import com.example.Service
 import spock.lang.Specification
 
-class _2InvocationCardinalitySpock extends Specification {
+class _3InvocationCardinalitySpock extends Specification {
 	
 	private Service service = Mock()
 	private Contrived contrived = new Contrived(service)

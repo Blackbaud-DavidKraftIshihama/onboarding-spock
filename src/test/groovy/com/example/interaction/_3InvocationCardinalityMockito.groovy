@@ -12,7 +12,7 @@ import static org.mockito.BDDMockito.given
 import static org.mockito.Mockito.*
 
 @RunWith(MockitoJUnitRunner)
-class _2InvocationCardinalityMockito {
+class _3InvocationCardinalityMockito {
 
 	@Mock
 	private Service service

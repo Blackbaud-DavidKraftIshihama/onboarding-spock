@@ -16,7 +16,7 @@ import static org.mockito.Matchers.anyObject
 import static org.mockito.Matchers.anyString
 
 @RunWith(MockitoJUnitRunner)
-class _3InvocationResponseMockito {
+class _2InvocationResponseMockito {
 
 	@Mock
 	private Service service
