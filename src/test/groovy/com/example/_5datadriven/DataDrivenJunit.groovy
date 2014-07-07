@@ -13,40 +13,40 @@ import static org.mockito.Mockito.mock
 @RunWith(Parameterized)
 class DataDrivenJunit {
 
-	@Parameterized.Parameters(name = "{index}: singleParamDelegate({0}) = {1}")
-	public static Collection<Object[]> inputAndReturnValues() {
-		return Arrays.asList(
-				["input1", "return1"].toArray(),
-				["input2", "return2"].toArray()
-		)
-	}
+    @Parameterized.Parameters(name = "{index}: singleParamDelegate({0}) = {1}")
+    public static Collection<Object[]> inputAndReturnValues() {
+        return Arrays.asList(
+                ["input1", "return1"].toArray(),
+                ["input2", "return2"].toArray()
+        )
+    }
 
-	private Service service
-	private Contrived contrived
-	private String inputParameter
-	private String expectedReturnValue
+    private Service service
+    private Contrived contrived
+    private String inputParameter
+    private String expectedReturnValue
 
-	public DataDrivenJunit(String inputParameter, String expectedReturnValue) {
-		this.inputParameter = inputParameter
-		this.expectedReturnValue = expectedReturnValue
-	}
+    public DataDrivenJunit(String inputParameter, String expectedReturnValue) {
+        this.inputParameter = inputParameter
+        this.expectedReturnValue = expectedReturnValue
+    }
 
-	@Before
-	void setup() {
-		service = mock(Service)
-		contrived = new Contrived(service)
-	}
+    @Before
+    void setup() {
+        service = mock(Service)
+        contrived = new Contrived(service)
+    }
 
-	@Test
-	public void simpleDataDrivenTest() {
-		// given
-		given(service.singleParamMethod(inputParameter)).willReturn(expectedReturnValue)
+    @Test
+    public void simpleDataDrivenTest() {
+        // given
+        given(service.singleParamMethod(inputParameter)).willReturn(expectedReturnValue)
 
-		// when
-		String actualReturnValue = contrived.singleParamDelegate(inputParameter)
+        // when
+        String actualReturnValue = contrived.singleParamDelegate(inputParameter)
 
-		// then
-		assert actualReturnValue == expectedReturnValue
-	}
+        // then
+        assert actualReturnValue == expectedReturnValue
+    }
 
 }

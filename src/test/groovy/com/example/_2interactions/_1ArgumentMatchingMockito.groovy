@@ -16,107 +16,107 @@ import static org.mockito.AdditionalMatchers.*
 @RunWith(MockitoJUnitRunner)
 class _1ArgumentMatchingMockito {
 
-	@Mock
-	private Service service
+    @Mock
+    private Service service
     @InjectMocks
-	private Contrived contrived
+    private Contrived contrived
 
-	@Test
-	void shouldMatchArgumentEquals() {
-		// given
-		given(service.singleParamMethod("value")).willReturn("value-string")
+    @Test
+    void shouldMatchArgumentEquals() {
+        // given
+        given(service.singleParamMethod("value")).willReturn("value-string")
 
-		// when
-		String value = contrived.singleParamDelegate("value")
+        // when
+        String value = contrived.singleParamDelegate("value")
 
-		// then
-		assert value == "value-string"
-	}
+        // then
+        assert value == "value-string"
+    }
 
-	@Test
-	void shouldMatchArgumentNotEquals() {
-		// given
-		given(service.singleParamMethod(not(eq("value1")))).willReturn("value-string")
+    @Test
+    void shouldMatchArgumentNotEquals() {
+        // given
+        given(service.singleParamMethod(not(eq("value1")))).willReturn("value-string")
 
-		// when
-		String value = contrived.singleParamDelegate("value2")
+        // when
+        String value = contrived.singleParamDelegate("value2")
 
-		// then
-		assert value == "value-string"
-	}
+        // then
+        assert value == "value-string"
+    }
 
-	@Test
-	void shouldMatchAnyArgument() {
-		// given
-		given(service.singleParamMethod(any())).willReturn("value-string")
+    @Test
+    void shouldMatchAnyArgument() {
+        // given
+        given(service.singleParamMethod(any())).willReturn("value-string")
 
-		// when
-		String value = contrived.singleParamDelegate(new Object())
+        // when
+        String value = contrived.singleParamDelegate(new Object())
 
-		// then
-		assert value == "value-string"
-	}
+        // then
+        assert value == "value-string"
+    }
 
-	@Test
-	void shouldMatchMultipleAnyArguments() {
-		// given
-		given(service.multiParamMethod(any(), any())).willReturn("onetwo")
+    @Test
+    void shouldMatchMultipleAnyArguments() {
+        // given
+        given(service.multiParamMethod(any(), any())).willReturn("onetwo")
 
-		// when
-		String value = contrived.multiParamDelegate(new Object(), new Object())
+        // when
+        String value = contrived.multiParamDelegate(new Object(), new Object())
 
-		// then
-		assert value == "onetwo"
-	}
+        // then
+        assert value == "onetwo"
+    }
 
-	@Test
-	void shouldMatchAnyArgumentOfType() {
-		// given
-		given(service.singleParamMethod(anyString())).willReturn("value")
+    @Test
+    void shouldMatchAnyArgumentOfType() {
+        // given
+        given(service.singleParamMethod(anyString())).willReturn("value")
 
-		// when
-		String value = contrived.singleParamDelegate("input-string")
+        // when
+        String value = contrived.singleParamDelegate("input-string")
 
-		// then
-		assert value == "value"
-	}
+        // then
+        assert value == "value"
+    }
 
-	@Test
-	void shouldMatchNullArgument() {
-		// given
-		given(service.singleParamMethod(isNull())).willReturn("value")
+    @Test
+    void shouldMatchNullArgument() {
+        // given
+        given(service.singleParamMethod(isNull())).willReturn("value")
 
-		// when
-		String value = contrived.singleParamDelegate(null)
+        // when
+        String value = contrived.singleParamDelegate(null)
 
-		// then
-		assert value == "value"
-	}
+        // then
+        assert value == "value"
+    }
 
-	@Test
-	void shouldMatchNotNullArgument() {
-		// given
-		given(service.singleParamMethod(isNotNull())).willReturn("value")
+    @Test
+    void shouldMatchNotNullArgument() {
+        // given
+        given(service.singleParamMethod(isNotNull())).willReturn("value")
 
-		// when
-		String value = contrived.singleParamDelegate(new Object())
+        // when
+        String value = contrived.singleParamDelegate(new Object())
 
-		// then
-		assert value == "value"
-	}
+        // then
+        assert value == "value"
+    }
 
-	@Test
-	void shouldMatchDynamicPredicateWhereArgumentIsStringOfLengthGreaterThan4() {
-		ArgumentMatcher matcher = {String argument -> argument.size() > 4} as ArgumentMatcher
-		// given
-		given(service.singleParamMethod(argThat(matcher))).willReturn("value")
+    @Test
+    void shouldMatchDynamicPredicateWhereArgumentIsStringOfLengthGreaterThan4() {
+        ArgumentMatcher matcher = {String argument -> argument.size() > 4} as ArgumentMatcher
+        // given
+        given(service.singleParamMethod(argThat(matcher))).willReturn("value")
 
-		// when
-		int randomNumber = new Random().nextInt(10000)
-		String value = contrived.singleParamDelegate("1234" + randomNumber.toString())
+        // when
+        int randomNumber = new Random().nextInt(10000)
+        String value = contrived.singleParamDelegate("1234" + randomNumber.toString())
 
-		// then
-		assert value == "value"
-	}
+        // then
+        assert value == "value"
+    }
 
 }

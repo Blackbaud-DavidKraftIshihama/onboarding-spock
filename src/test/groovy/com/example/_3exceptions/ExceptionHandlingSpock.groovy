@@ -7,61 +7,61 @@ import spock.lang.Specification
 
 class ExceptionHandlingSpock extends Specification {
 
-	private Service service = Mock()
-	private Contrived contrived = new Contrived(service)
+    private Service service = Mock()
+    private Contrived contrived = new Contrived(service)
 
-	/**
-	 * The 'thrown' method is used to indicate an expected exception.  The method
-	 * accepts one parameter - the type of the expected exception.
-	 */
-	def "should detect exception by type"() {
-		when:
-		contrived.throwException("failure!", 1)
+    /**
+     * The 'thrown' method is used to indicate an expected exception.  The method
+     * accepts one parameter - the type of the expected exception.
+     */
+    def "should detect exception by type"() {
+        when:
+        contrived.throwException("failure!", 1)
 
-		then:
-		// FIXME
-		// SNIPPET START
-		thrown(ServiceException)
-		// SNIPPET END
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        thrown(ServiceException)
+        // SNIPPET END
+    }
 
-	/**
-	 * The 'thrown' method returns the thrown exception which can then be inspected
-	 * and used to make assertions.  In addition, if the type parameter is omitted, the
-	 * type will be inferred from the variable type on the left-hand side of the assignment.
-	 */
-	def "should detect exception by type and assert internal values"() {
-		given:
-		String expectedMessage = "failure!"
-		int expectedStatusCode = 1
+    /**
+     * The 'thrown' method returns the thrown exception which can then be inspected
+     * and used to make assertions.  In addition, if the type parameter is omitted, the
+     * type will be inferred from the variable type on the left-hand side of the assignment.
+     */
+    def "should detect exception by type and assert internal values"() {
+        given:
+        String expectedMessage = "failure!"
+        int expectedStatusCode = 1
 
-		when:
-		contrived.throwException(expectedMessage, expectedStatusCode)
+        when:
+        contrived.throwException(expectedMessage, expectedStatusCode)
 
-		then:
-		// FIXME
-		// SNIPPET START
-		ServiceException ex = thrown()
-		ex.message == expectedMessage
-		ex.statusCode == expectedStatusCode
-		// SNIPPET END
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        ServiceException ex = thrown()
+        ex.message == expectedMessage
+        ex.statusCode == expectedStatusCode
+        // SNIPPET END
+    }
 
-	/**
-	 * The 'notThrown' method provides explicit verification that an exception should not be thrown
-	 */
-	def "should not throw NullPointerException when key is null"() {
-		given:
-		HashMap map = new HashMap()
+    /**
+     * The 'notThrown' method provides explicit verification that an exception should not be thrown
+     */
+    def "should not throw NullPointerException when key is null"() {
+        given:
+        HashMap map = new HashMap()
 
-		when:
-		map.put(null, "element")
+        when:
+        map.put(null, "element")
 
-		then:
-		// FIXME
-		// SNIPPET START
-		notThrown(NullPointerException)
-		// SNIPPET END
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        notThrown(NullPointerException)
+        // SNIPPET END
+    }
 
 }

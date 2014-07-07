@@ -5,86 +5,86 @@ import com.example.Service
 import spock.lang.Specification
 
 class _3InvocationCardinalitySpock extends Specification {
-	
-	private Service service = Mock()
-	private Contrived contrived = new Contrived(service)
 
-	/**
-	 * The following syntax is used to verify cardinality of method invocations...
-	 *     <number of required invocations> * <method invocation>
-	 * If a return value is required, the right shift operator '>>' is used...
-	 *     <number of required invocations> * <method invocation> >> <return value>
-	 */
-	def "should match exactly once"() {
-		when:
-		String value = contrived.singleParamDelegate("object")
+    private Service service = Mock()
+    private Contrived contrived = new Contrived(service)
 
-		then:
-		// FIXME: verify service.singleParamMethod is only called once
-		// SNIPPET START
-		1 * service.singleParamMethod("object") >> "value"
-		// SNIPPET END
+    /**
+     * The following syntax is used to verify cardinality of method invocations...
+     *     <number of required invocations> * <method invocation>
+     * If a return value is required, the right shift operator '>>' is used...
+     *     <number of required invocations> * <method invocation> >> <return value>
+     */
+    def "should match exactly once"() {
+        when:
+        String value = contrived.singleParamDelegate("object")
 
-		value == "value"
-	}
+        then:
+        // FIXME: verify service.singleParamMethod is only called once
+        // SNIPPET START
+        1 * service.singleParamMethod("object") >> "value"
+        // SNIPPET END
 
-	def "should match exactly twice"() {
-		when:
-		List<String> values = contrived.singleParamDelegateForEach("object", "object")
+        value == "value"
+    }
 
-		then:
-		// FIXME
-		// SNIPPET START
-		2 * service.singleParamMethod("object") >> "value"
-		// SNIPPET END
+    def "should match exactly twice"() {
+        when:
+        List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
-		values == ["value", "value"]
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        2 * service.singleParamMethod("object") >> "value"
+        // SNIPPET END
 
-	def "should not match any"() {
-		when:
-		List<String> values = contrived.singleParamDelegateForEach(new Object[0])
+        values == ["value", "value"]
+    }
 
-		then:
-		// FIXME
-		// SNIPPET START
-		0 * service.singleParamMethod("object")
-		// SNIPPET END
+    def "should not match any"() {
+        when:
+        List<String> values = contrived.singleParamDelegateForEach(new Object[0])
 
-		values == []
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        0 * service.singleParamMethod("object")
+        // SNIPPET END
 
-	/**
-	 * Groovy range syntax can be used to specify a cardinality range...
-	 *     (<min number>..<max number>) * <method invocation>
-	 */
-	def "should match between once and twice"() {
-		when:
-		List<String> values = contrived.singleParamDelegateForEach("object", "object")
+        values == []
+    }
 
-		then:
-		// FIXME
-		// SNIPPET START
-		(1..2) * service.singleParamMethod("object") >> "value"
-		// SNIPPET END
+    /**
+     * Groovy range syntax can be used to specify a cardinality range...
+     *     (<min number>..<max number>) * <method invocation>
+     */
+    def "should match between once and twice"() {
+        when:
+        List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
-		values == ["value", "value"]
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        (1..2) * service.singleParamMethod("object") >> "value"
+        // SNIPPET END
 
-	/**
-	 * The underscore character '_' is used within a range to indicate any value.
-	 */
-	def "should match twice or more"() {
-		when:
-		List<String> values = contrived.singleParamDelegateForEach("object", "object", "object")
+        values == ["value", "value"]
+    }
 
-		then:
-		// FIXME
-		// SNIPPET START
-		(2.._) * service.singleParamMethod("object") >> "value"
-		// SNIPPET END
+    /**
+     * The underscore character '_' is used within a range to indicate any value.
+     */
+    def "should match twice or more"() {
+        when:
+        List<String> values = contrived.singleParamDelegateForEach("object", "object", "object")
 
-		values == ["value", "value", "value"]
-	}
+        then:
+        // FIXME
+        // SNIPPET START
+        (2.._) * service.singleParamMethod("object") >> "value"
+        // SNIPPET END
+
+        values == ["value", "value", "value"]
+    }
 
 }

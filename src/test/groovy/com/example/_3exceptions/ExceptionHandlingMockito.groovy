@@ -18,73 +18,73 @@ import static org.junit.Assert.fail
 @RunWith(MockitoJUnitRunner)
 class ExceptionHandlingMockito {
 
-	@Mock
-	private Service service
-	@InjectMocks
-	private Contrived contrived
-	@Rule
-	public ExpectedException exception = ExpectedException.none()
+    @Mock
+    private Service service
+    @InjectMocks
+    private Contrived contrived
+    @Rule
+    public ExpectedException exception = ExpectedException.none()
 
-	@Test(expected = ServiceException)
-	void shouldDetectExceptionByType() {
-		// when
-		contrived.throwException("failure!", 1)
-	}
+    @Test(expected = ServiceException)
+    void shouldDetectExceptionByType() {
+        // when
+        contrived.throwException("failure!", 1)
+    }
 
-	@Test
-	void shouldDetectExceptionByTypeAndAssertInternalValues_theOldWay() {
-		// given
-		String expectedMessage = "failure!"
-		int expectedStatusCode = 1
+    @Test
+    void shouldDetectExceptionByTypeAndAssertInternalValues_theOldWay() {
+        // given
+        String expectedMessage = "failure!"
+        int expectedStatusCode = 1
 
-		try {
-			// when
-			contrived.throwException(expectedMessage, expectedStatusCode)
-			fail() // gotta remember the fail() here!
-		} catch (ServiceException ex) {
-			// then
-			assert ex.message == expectedMessage
-			assert ex.statusCode == expectedStatusCode
-		}
-	}
+        try {
+            // when
+            contrived.throwException(expectedMessage, expectedStatusCode)
+            fail() // gotta remember the fail() here!
+        } catch (ServiceException ex) {
+            // then
+            assert ex.message == expectedMessage
+            assert ex.statusCode == expectedStatusCode
+        }
+    }
 
-	@Test
-	void shouldDetectExceptionByTypeAndAssertInternalValues_theNewHotness() {
-		// given
-		String expectedMessage = "failure!"
-		int expectedStatusCode = 1
-		exception.expect(ServiceException)
-		exception.expectMessage(expectedMessage)
-		exception.expect(StatusCodeMatcher.hasStatusCode(expectedStatusCode))
+    @Test
+    void shouldDetectExceptionByTypeAndAssertInternalValues_theNewHotness() {
+        // given
+        String expectedMessage = "failure!"
+        int expectedStatusCode = 1
+        exception.expect(ServiceException)
+        exception.expectMessage(expectedMessage)
+        exception.expect(StatusCodeMatcher.hasStatusCode(expectedStatusCode))
 
-		// when
-		contrived.throwException(expectedMessage, expectedStatusCode)
-	}
+        // when
+        contrived.throwException(expectedMessage, expectedStatusCode)
+    }
 
-	public static class StatusCodeMatcher extends TypeSafeMatcher<ServiceException> {
+    public static class StatusCodeMatcher extends TypeSafeMatcher<ServiceException> {
 
-		public static StatusCodeMatcher hasStatusCode(int statusCode) {
-			return new StatusCodeMatcher(statusCode);
-		}
+        public static StatusCodeMatcher hasStatusCode(int statusCode) {
+            return new StatusCodeMatcher(statusCode);
+        }
 
-		private int actualStatusCode;
-		private int expectedStatusCode;
+        private int actualStatusCode;
+        private int expectedStatusCode;
 
-		private StatusCodeMatcher(int expectedStatusCode) {
-			this.expectedStatusCode = expectedStatusCode;
-		}
+        private StatusCodeMatcher(int expectedStatusCode) {
+            this.expectedStatusCode = expectedStatusCode;
+        }
 
-		@Override
-		public  boolean matchesSafely(ServiceException exception) {
-			this.actualStatusCode = exception.getStatusCode()
-			return actualStatusCode == expectedStatusCode
-		}
+        @Override
+        public  boolean matchesSafely(ServiceException exception) {
+            this.actualStatusCode = exception.getStatusCode()
+            return actualStatusCode == expectedStatusCode
+        }
 
-		@Override
-		public void describeTo(Description description) {
-			description.appendValue(actualStatusCode).appendText(" was not found, expecting ").appendValue(expectedStatusCode);
-		}
+        @Override
+        public void describeTo(Description description) {
+            description.appendValue(actualStatusCode).appendText(" was not found, expecting ").appendValue(expectedStatusCode);
+        }
 
-	}
+    }
 
 }

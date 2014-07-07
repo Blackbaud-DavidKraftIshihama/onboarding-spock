@@ -18,64 +18,64 @@ import static org.mockito.Matchers.anyString
 @RunWith(MockitoJUnitRunner)
 class _2InvocationResponseMockito {
 
-	@Mock
-	private Service service
+    @Mock
+    private Service service
     @InjectMocks
-	private Contrived contrived
+    private Contrived contrived
 
-	@Test
-	void shouldReturnSingleResponse() {
-		// given
-		given(service.singleParamMethod("value")).willReturn("value-string")
+    @Test
+    void shouldReturnSingleResponse() {
+        // given
+        given(service.singleParamMethod("value")).willReturn("value-string")
 
-		// when
-		String value = contrived.singleParamDelegate("value")
+        // when
+        String value = contrived.singleParamDelegate("value")
 
-		// then
-		assert value == "value-string"
-	}
+        // then
+        assert value == "value-string"
+    }
 
-	@Test
-	void shouldReturnChainedResponses() {
-		// willReturn
-		given(service.singleParamMethod("object")).willReturn("value1").willReturn("value2")
+    @Test
+    void shouldReturnChainedResponses() {
+        // willReturn
+        given(service.singleParamMethod("object")).willReturn("value1").willReturn("value2")
 
-		// when
-		List<String> values = contrived.singleParamDelegateForEach("object", "object")
+        // when
+        List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
-		// then
-		assert values == ["value1", "value2"]
-	}
+        // then
+        assert values == ["value1", "value2"]
+    }
 
-	@Test(expected = RuntimeException)
-	void shouldThrowException() {
-		// given
-		given(service.singleParamMethod("object")).willThrow(new RuntimeException())
+    @Test(expected = RuntimeException)
+    void shouldThrowException() {
+        // given
+        given(service.singleParamMethod("object")).willThrow(new RuntimeException())
 
-		// when
-		contrived.singleParamDelegate("object")
-	}
+        // when
+        contrived.singleParamDelegate("object")
+    }
 
-	@Test
-	void shouldReturnResponseOnFirstInvocationAndThrowExceptionOnSecond() {
-		// given
-		given(service.singleParamMethod("object")).willReturn("value").willThrow(new RuntimeException())
+    @Test
+    void shouldReturnResponseOnFirstInvocationAndThrowExceptionOnSecond() {
+        // given
+        given(service.singleParamMethod("object")).willReturn("value").willThrow(new RuntimeException())
 
-		// when
-		String value = contrived.singleParamDelegate("object")
+        // when
+        String value = contrived.singleParamDelegate("object")
 
-		// then
-		assert value == "value"
+        // then
+        assert value == "value"
 
-		// when
-		try {
-			contrived.singleParamDelegate("object")
-			fail()
-		} catch (RuntimeException ex) {}
-	}
+        // when
+        try {
+            contrived.singleParamDelegate("object")
+            fail()
+        } catch (RuntimeException ex) {}
+    }
 
-	@Test
-	void shouldOptionallyThrowExceptionBasedOnInputArguments() {
+    @Test
+    void shouldOptionallyThrowExceptionBasedOnInputArguments() {
         //given
         given(service.singleParamMethod(anyObject())).willAnswer(throwRuntimeExceptionIfNull())
 
@@ -97,7 +97,7 @@ class _2InvocationResponseMockito {
     }
 
     @Test
-	void shouldUseArgumentsToCalculateResponse() {
+    void shouldUseArgumentsToCalculateResponse() {
         //given
         given(service.singleParamMethod(anyString())).willAnswer(useInputInReturn())
 

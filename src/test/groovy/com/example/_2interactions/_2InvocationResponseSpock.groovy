@@ -5,115 +5,115 @@ import com.example.Service
 import spock.lang.Specification
 
 class _2InvocationResponseSpock extends Specification {
-	
-	private Service service = Mock()
-	private Contrived contrived = new Contrived(service)
 
-	/**
-	 * The right shift operator '>>' is used to specify a return value
-	 */
-	def "should return single response"() {
-		given:
-		// FIXME
-		// SNIPPET START
-		service.singleParamMethod("object") >> "value"
-		// SNIPPET END
+    private Service service = Mock()
+    private Contrived contrived = new Contrived(service)
 
-		when:
-		String value = contrived.singleParamDelegate("object")
+    /**
+     * The right shift operator '>>' is used to specify a return value
+     */
+    def "should return single response"() {
+        given:
+        // FIXME
+        // SNIPPET START
+        service.singleParamMethod("object") >> "value"
+        // SNIPPET END
 
-		then:
-		value == "value"
-	}
+        when:
+        String value = contrived.singleParamDelegate("object")
 
-	/**
-	 * The right triple shift operator '>>>' along with an array of values is used to chain multiple responses.
-	 */
-	def "should return chained responses"() {
-		given:
-		// FIXME
-		// SNIPPET START
-		service.singleParamMethod("object") >>> ["value1", "value2"]
-		// SNIPPET END
+        then:
+        value == "value"
+    }
 
-		when:
-		List<String> values = contrived.singleParamDelegateForEach("object", "object")
+    /**
+     * The right triple shift operator '>>>' along with an array of values is used to chain multiple responses.
+     */
+    def "should return chained responses"() {
+        given:
+        // FIXME
+        // SNIPPET START
+        service.singleParamMethod("object") >>> ["value1", "value2"]
+        // SNIPPET END
 
-		then:
-		values == ["value1", "value2"]
-	}
+        when:
+        List<String> values = contrived.singleParamDelegateForEach("object", "object")
 
-	/**
-	 * If a closure is provided as the response object, it's contents will be interpreted.
-	 */
-	def "should throw exception"() {
-		given:
-		// FIXME
-		// SNIPPET START
-		service.singleParamMethod("object") >> { throw new RuntimeException() }
-		// SNIPPET END
+        then:
+        values == ["value1", "value2"]
+    }
 
-		when:
-		contrived.singleParamDelegate("object")
+    /**
+     * If a closure is provided as the response object, it's contents will be interpreted.
+     */
+    def "should throw exception"() {
+        given:
+        // FIXME
+        // SNIPPET START
+        service.singleParamMethod("object") >> { throw new RuntimeException() }
+        // SNIPPET END
 
-		then:
-		thrown(RuntimeException)
-	}
+        when:
+        contrived.singleParamDelegate("object")
 
-	/**
-	 * While the right triple shift operator '>>>' can be used to return multiple values, the values will simply be
-	 * returned and not interpreted.  If one of the values needs to be interpreted, then the regular
-	 * right shift operator '>>' can be chained.
-	 */
-	def "should return response on first invocation and throw exception on second"() {
-		given:
-		// FIXME
-		// SNIPPET START
-		service.singleParamMethod("object") >> "value" >> { throw new RuntimeException() }
-		// SNIPPET END
+        then:
+        thrown(RuntimeException)
+    }
 
-		when:
-		String value = contrived.singleParamDelegate("object")
+    /**
+     * While the right triple shift operator '>>>' can be used to return multiple values, the values will simply be
+     * returned and not interpreted.  If one of the values needs to be interpreted, then the regular
+     * right shift operator '>>' can be chained.
+     */
+    def "should return response on first invocation and throw exception on second"() {
+        given:
+        // FIXME
+        // SNIPPET START
+        service.singleParamMethod("object") >> "value" >> { throw new RuntimeException() }
+        // SNIPPET END
 
-		then:
-		value == "value"
+        when:
+        String value = contrived.singleParamDelegate("object")
 
-		when:
-		contrived.singleParamDelegate("object")
+        then:
+        value == "value"
 
-		then:
-		thrown(RuntimeException)
-	}
+        when:
+        contrived.singleParamDelegate("object")
 
-	/**
-	 * As we learned previously, the underscore character '_' is used to signify any argument.  This can be used
-	 * in combination with a closure as return value to selectively throw an exception.
-	 * If the closure declares a single untyped parameter, it is passed the input method arguments as a list.
-	 */
-	def "should throw exception if input is null"() {
-		given:
-		service.singleParamMethod(_) >> { args -> if (args[0] == null) throw new RuntimeException() }
+        then:
+        thrown(RuntimeException)
+    }
 
-		when:
-		contrived.singleParamDelegate(null)
+    /**
+     * As we learned previously, the underscore character '_' is used to signify any argument.  This can be used
+     * in combination with a closure as return value to selectively throw an exception.
+     * If the closure declares a single untyped parameter, it is passed the input method arguments as a list.
+     */
+    def "should throw exception if input is null"() {
+        given:
+        service.singleParamMethod(_) >> { args -> if (args[0] == null) throw new RuntimeException() }
 
-		then:
-		thrown(RuntimeException)
-	}
+        when:
+        contrived.singleParamDelegate(null)
 
-	/**
-	 * If the closure declares a type parameter or parameters, the parameters will be passed to the closure as
-	 * individual arguments.
-	 */
-	def "should return input argument appended with '-response'"() {
-		given:
-		service.singleParamMethod(_) >> { String arg -> "${arg}-response"}
+        then:
+        thrown(RuntimeException)
+    }
 
-		when:
-		String value = contrived.singleParamDelegate("object")
+    /**
+     * If the closure declares a type parameter or parameters, the parameters will be passed to the closure as
+     * individual arguments.
+     */
+    def "should return input argument appended with '-response'"() {
+        given:
+        service.singleParamMethod(_) >> { String arg -> "${arg}-response"}
 
-		then:
-		value == "object-response"
-	}
+        when:
+        String value = contrived.singleParamDelegate("object")
+
+        then:
+        value == "object-response"
+    }
 
 }

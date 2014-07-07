@@ -2,8 +2,8 @@ package com.example;
 
 public interface Service {
 
-	String singleParamMethod(Object obj);
+    String singleParamMethod(Object obj);
 
-	String multiParamMethod(Object... objects);
+    String multiParamMethod(Object... objects);
 
 }

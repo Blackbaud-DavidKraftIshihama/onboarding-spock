@@ -8,64 +8,64 @@ import spock.lang.Unroll
 @Unroll("#featureName with #inputParameter is #expectedReturnValue")
 class DataDrivenSpock extends Specification {
 
-	private Service toStringService = Mock()
-	private Contrived contrived = new Contrived(toStringService)
+    private Service toStringService = Mock()
+    private Contrived contrived = new Contrived(toStringService)
 
-	def "simple test with data tables"() {
-		when:
-		String actualReturnValue = contrived.singleParamDelegate(inputParameter)
+    def "simple test with data tables"() {
+        when:
+        String actualReturnValue = contrived.singleParamDelegate(inputParameter)
 
-		then:
-		1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
-		actualReturnValue == expectedReturnValue
+        then:
+        1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
+        actualReturnValue == expectedReturnValue
 
-		where:
-		inputParameter | expectedReturnValue
-		"input1"       | "return1"
-		"input2"       | "return2"
-	}
+        where:
+        inputParameter | expectedReturnValue
+        "input1"       | "return1"
+        "input2"       | "return2"
+    }
 
-	def "simple test using data pipes"() {
-		when:
-		String actualReturnValue = contrived.singleParamDelegate(inputParameter)
+    def "simple test using data pipes"() {
+        when:
+        String actualReturnValue = contrived.singleParamDelegate(inputParameter)
 
-		then:
-		1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
-		actualReturnValue == expectedReturnValue
+        then:
+        1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
+        actualReturnValue == expectedReturnValue
 
-		where:
-		inputParameter << ["input1", "input2"]
-		expectedReturnValue << ["return1", "return2"]
-	}
+        where:
+        inputParameter << ["input1", "input2"]
+        expectedReturnValue << ["return1", "return2"]
+    }
 
-	def "simple test with variable assignment"() {
-		when:
-		String actualReturnValue = contrived.singleParamDelegate(inputParameter)
+    def "simple test with variable assignment"() {
+        when:
+        String actualReturnValue = contrived.singleParamDelegate(inputParameter)
 
-		then:
-		1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
-		actualReturnValue == expectedReturnValue
+        then:
+        1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
+        actualReturnValue == expectedReturnValue
 
-		where:
-		inputParameter | _
-		"input1"       | _
-		"input2"       | _
-		expectedReturnValue = "return-${inputParameter}"
-	}
+        where:
+        inputParameter | _
+        "input1"       | _
+        "input2"       | _
+        expectedReturnValue = "return-${inputParameter}"
+    }
 
-	@Unroll
-	def "simple test with unrolling override and placeholders should return #expectedReturnValue when input is #inputParameter"() {
-		when:
-		String actualReturnValue = contrived.singleParamDelegate(inputParameter)
+    @Unroll
+    def "simple test with unrolling override and placeholders should return #expectedReturnValue when input is #inputParameter"() {
+        when:
+        String actualReturnValue = contrived.singleParamDelegate(inputParameter)
 
-		then:
-		1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
-		actualReturnValue == expectedReturnValue
+        then:
+        1 * toStringService.singleParamMethod(inputParameter) >> expectedReturnValue
+        actualReturnValue == expectedReturnValue
 
-		where:
-		inputParameter | expectedReturnValue
-		"input1"       | "return1"
-		"input2"       | "return2"
-	}
+        where:
+        inputParameter | expectedReturnValue
+        "input1"       | "return1"
+        "input2"       | "return2"
+    }
 
 }
