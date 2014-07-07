@@ -14,8 +14,7 @@ class _1BasicSpecification extends Specification {
 
         // FIXME: verify list contents
         // SNIPPET START
-        then:
-        list == ['one', 'two']
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
     }
 
@@ -26,8 +25,7 @@ class _1BasicSpecification extends Specification {
 
         // FIXME: verify beans are equal
         // SNIPPET START
-        expect:
-        bean1.equals(bean2)
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
     }
 
@@ -37,8 +35,7 @@ class _1BasicSpecification extends Specification {
 
         // FIXME: should define file2 in an 'and' block
         // SNIPPET START
-        and:
-        File file2 = new File('file-two')
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:

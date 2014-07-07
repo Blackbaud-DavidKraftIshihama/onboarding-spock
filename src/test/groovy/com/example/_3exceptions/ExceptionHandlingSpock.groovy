@@ -21,7 +21,7 @@ class ExceptionHandlingSpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        thrown(ServiceException)
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
     }
 
@@ -41,9 +41,7 @@ class ExceptionHandlingSpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        ServiceException ex = thrown()
-        ex.message == expectedMessage
-        ex.statusCode == expectedStatusCode
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
     }
 
@@ -60,7 +58,7 @@ class ExceptionHandlingSpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        notThrown(NullPointerException)
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
     }
 

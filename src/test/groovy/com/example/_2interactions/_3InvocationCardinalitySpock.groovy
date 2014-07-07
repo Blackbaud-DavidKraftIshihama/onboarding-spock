@@ -22,7 +22,7 @@ class _3InvocationCardinalitySpock extends Specification {
         then:
         // FIXME: verify service.singleParamMethod is only called once
         // SNIPPET START
-        1 * service.singleParamMethod("object") >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         value == "value"
@@ -35,7 +35,7 @@ class _3InvocationCardinalitySpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        2 * service.singleParamMethod("object") >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         values == ["value", "value"]
@@ -48,7 +48,7 @@ class _3InvocationCardinalitySpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        0 * service.singleParamMethod("object")
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         values == []
@@ -65,7 +65,7 @@ class _3InvocationCardinalitySpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        (1..2) * service.singleParamMethod("object") >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         values == ["value", "value"]
@@ -81,7 +81,7 @@ class _3InvocationCardinalitySpock extends Specification {
         then:
         // FIXME
         // SNIPPET START
-        (2.._) * service.singleParamMethod("object") >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         values == ["value", "value", "value"]

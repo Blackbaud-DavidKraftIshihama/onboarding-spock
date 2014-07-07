@@ -17,7 +17,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod("value") >> "value-string"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -34,7 +34,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod(!"value") >> "value-string"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -52,7 +52,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod(_) >> "value-string"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -69,7 +69,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.multiParamMethod(*_) >> "onetwo"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -86,7 +86,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod(_ as String) >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -103,7 +103,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod(null) >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -120,7 +120,7 @@ class _1ArgumentMatchingSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod(!null) >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:

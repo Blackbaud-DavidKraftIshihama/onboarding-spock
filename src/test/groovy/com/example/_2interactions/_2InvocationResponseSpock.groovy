@@ -16,7 +16,7 @@ class _2InvocationResponseSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod("object") >> "value"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -33,7 +33,7 @@ class _2InvocationResponseSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod("object") >>> ["value1", "value2"]
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -50,7 +50,7 @@ class _2InvocationResponseSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod("object") >> { throw new RuntimeException() }
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
@@ -69,7 +69,7 @@ class _2InvocationResponseSpock extends Specification {
         given:
         // FIXME
         // SNIPPET START
-        service.singleParamMethod("object") >> "value" >> { throw new RuntimeException() }
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:

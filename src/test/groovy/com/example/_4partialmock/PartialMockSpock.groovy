@@ -16,7 +16,7 @@ class PartialMockSpock extends Specification
         given:
         // FIXME
         // SNIPPET START
-        contrived.singleParamDelegate(_) >> "stuff"
+        org.spockframework.util.Assert.fail("Fix me!")
         // SNIPPET END
 
         when:
