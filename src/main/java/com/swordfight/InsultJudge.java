@@ -1,10 +1,8 @@
 package com.swordfight;
 
-/**
- *
- * This judge is clearly biased.
- *
- **/
 public interface InsultJudge {
-    public int judgeInsult(String insult1, String insult2);
+    /**
+     * Judge insults! Returns the winning insult.
+     */
+    public String judgeInsults(String insult1, String insult2);
 }

@@ -20,8 +20,10 @@ public class InsultSwordFight {
      *
      **/
     public Fighter fight(Fighter fighter1, Fighter fighter2) {
-        int winningPlayer = insultJudge.judgeInsult(fighter1.getInsult(), fighter2.getInsult());
-        if (winningPlayer == 1) {
+        String insult1 = fighter1.getInsult();
+        String insult2 = fighter2.getInsult();
+        String winningInsult = insultJudge.judgeInsults(insult1, insult2);
+        if (winningInsult.equals(insult1)) {
             fighter1.stab(fighter2);
             return fighter1;
         } else {
