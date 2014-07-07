@@ -8,12 +8,18 @@ package com.swordfight;
  **/
 public class InsultSwordFight {
 
+    private InsultJudge insultJudge;
+
+    public InsultSwordFight(InsultJudge insultJudge) {
+        this.insultJudge = insultJudge;
+    }
+
     /**
      *
      * Duke it out! Two players insult each other, the winner stabs the other and is returned!
      *
      **/
-    public Fighter fight(InsultJudge insultJudge, Fighter fighter1, Fighter fighter2) {
+    public Fighter fight(Fighter fighter1, Fighter fighter2) {
         int winningPlayer = insultJudge.judgeInsult(fighter1.getInsult(), fighter2.getInsult());
         if (winningPlayer == 1) {
             fighter1.stab(fighter2);
