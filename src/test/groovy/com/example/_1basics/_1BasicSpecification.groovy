@@ -31,23 +31,6 @@ class _1BasicSpecification extends Specification {
         // SNIPPET END
     }
 
-    def "should use 'cleanup' to take care of any transient resources created by the individual test"() {
-        given:
-        File file = new File("some-file")
-
-        when:
-        file.write("file content")
-
-        then:
-        file.text == "file content"
-
-        // FIXME: delete the file as part of test cleanup
-        // SNIPPET START
-        cleanup:
-        file.delete()
-        // SNIPPET END
-    }
-
     def "should use 'and' to break up blocks into logical pieces (very poor example, notwithstanding)"() {
         given:
         File file1 = new File('file-one')
@@ -70,6 +53,7 @@ class _1BasicSpecification extends Specification {
         and:
         file2.text == "file two content"
 
+        // NOTE: requiring a cleanup step might indicate that this is not a true unit test
         cleanup:
         file1.delete()
 
