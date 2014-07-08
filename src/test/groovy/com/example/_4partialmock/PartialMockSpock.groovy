@@ -10,7 +10,8 @@ class PartialMockSpock extends Specification
     private Contrived contrived = Spy(Contrived, constructorArgs: [service])
 
     /**
-     * When a class is constructed with Spy, methods can be partial-mocked
+     * Unless otherwise trained, a Spy will delegate method calls to the real object.
+     * Training a Spy will change its behavior exactly as if it were a mock.
      */
     def "service should never be called" () {
         given:

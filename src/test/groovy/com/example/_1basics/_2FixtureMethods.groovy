@@ -32,4 +32,10 @@ class _2FixtureMethods extends Specification {
         true
     }
 
+    def "Second test example"() {
+        println "test2"
+
+        expect:
+        true
+    }
 }

@@ -64,6 +64,8 @@ class _2InvocationResponseSpock extends Specification {
      * While the right triple shift operator '>>>' can be used to return multiple values, the values will simply be
      * returned and not interpreted.  If one of the values needs to be interpreted, then the regular
      * right shift operator '>>' can be chained.
+     *
+     * Ex: object.method() >> "returnValue1" >> "returnValue2"
      */
     def "should return response on first invocation and throw exception on second"() {
         given:

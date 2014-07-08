@@ -56,10 +56,7 @@ class ExceptionHandlingSpock extends Specification {
         map.put(null, "element")
 
         then:
-        // FIXME
-        // SNIPPET START
-        org.spockframework.util.Assert.fail("Fix me!")
-        // SNIPPET END
+        notThrown(Exception)
     }
 
 }

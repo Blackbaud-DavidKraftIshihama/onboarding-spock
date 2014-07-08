@@ -2,7 +2,7 @@ package com.swordfight;
 
 /**
  *
- * Throw insults at your enemy to throw them off their guard! A sufficient insult
+ * Insult your enemy to throw them off their guard! A sufficient insult
  * will let you get stabby.
  *
  **/

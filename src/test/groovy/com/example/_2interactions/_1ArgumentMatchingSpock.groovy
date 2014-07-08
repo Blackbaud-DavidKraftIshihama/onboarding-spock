@@ -32,10 +32,7 @@ class _1ArgumentMatchingSpock extends Specification {
      */
     def "should match argument not equals"() {
         given:
-        // FIXME
-        // SNIPPET START
-        org.spockframework.util.Assert.fail("Fix me!")
-        // SNIPPET END
+        service.singleParamMethod(!"value") >> "value-string"
 
         when:
         int randomNumber = new Random().nextInt(10000)
